@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width,initial-scale=1.0,maximum-scale=1.0,user-scalable=no"/>
+  <meta name="theme-color" content="#0F172A"/>
+  <meta name="apple-mobile-web-app-capable" content="yes"/>
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent"/>
+  <meta name="apple-mobile-web-app-title" content="Yıkama CRM"/>
+  <meta name="description" content="Mobil Yıkama Müşteri ve Finans Takip Sistemi"/>
+  <title>Mobil Yıkama CRM</title>
+  <link rel="manifest" href="manifest.json"/>
+  <link rel="apple-touch-icon" href="icon.png"/>
+  <link rel="preconnect" href="https://fonts.googleapis.com"/>
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet"/>
+  <link rel="stylesheet" href="style.css"/>
+</head>
+<body>
+<div id="app">
+  <!-- TOP BAR -->
+  <header class="top-bar" id="topBar">
+    <div class="top-bar-brand">
+      <div class="top-bar-icon">🚿</div>
+      <div>
+        <div class="top-bar-name">Mobil Yıkama</div>
+        <div class="top-bar-sub">CRM & Finans Takibi</div>
+      </div>
+    </div>
+    <div class="top-bar-actions" id="topBarActions">
+      <!-- dinamik -->
+    </div>
+  </header>
+
+  <!-- MAIN CONTENT -->
+  <main class="main-content" id="mainContent"></main>
+
+  <!-- FAB -->
+  <button class="fab" id="fabBtn" onclick="fabAction()">＋</button>
+
+  <!-- BOTTOM NAV -->
+  <nav class="bottom-nav">
+    <button class="nav-btn active" onclick="navigate('home')" id="nav-home">
+      <div class="nav-icon-wrap">📊</div>
+      <span class="nav-label">Özet</span>
+    </button>
+    <button class="nav-btn" onclick="navigate('appointments')" id="nav-appointments">
+      <div class="nav-icon-wrap">📅</div>
+      <span class="nav-label">Randevu</span>
+    </button>
+    <button class="nav-btn" onclick="navigate('customers')" id="nav-customers">
+      <div class="nav-icon-wrap">👥</div>
+      <span class="nav-label">Müşteri</span>
+    </button>
+    <button class="nav-btn" onclick="navigate('finance')" id="nav-finance">
+      <div class="nav-icon-wrap">💳</div>
+      <span class="nav-label">Finans</span>
+    </button>
+  </nav>
+</div>
+
+<!-- OVERLAYS -->
+<div id="modalOverlay" class="modal-overlay hidden" onclick="closeModal()"></div>
+<div id="modal" class="modal hidden"></div>
+<div id="toast" class="toast hidden"></div>
+
+<script src="app.js"></script>
+</body>
+</html>
