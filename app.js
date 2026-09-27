@@ -1029,7 +1029,7 @@ async function confirmDeleteAppt(id, goBack) {
     <p style="color:var(--text-sec);margin-bottom:24px;line-height:1.6">"<strong>${getSvc(a.serviceType).label}</strong>" randevusunu silmek istiyor musunuz? Bu işlem geri alınamaz.</p>
     <div style="display:flex;gap:10px">
       <button class="save-btn" style="background:var(--surface2);box-shadow:none;flex:1" onclick="closeModal()">İptal</button>
-      <button class="save-btn danger" style="flex:1" onclick="DB.deleteAppointment('${id}');closeModal();showToast('Silindi','error');${goBack ? `navigate('appointments');` : ``}render()">Sil</button>
+      <button class="save-btn danger" style="flex:1" onclick="DB.deleteAppointment('${id}');invalidateCache('appointments');closeModal();showToast('Silindi','error');${goBack ? `navigate('appointments');` : ``}render()">Sil</button>
     </div>
   `);
 }
@@ -1039,7 +1039,7 @@ async function confirmDeleteCustomer(id, name) {
     <p style="color:var(--text-sec);margin-bottom:24px;line-height:1.6">"<strong>${name}</strong>" müşterisini ve tüm işlem geçmişini silmek istiyor musunuz?</p>
     <div style="display:flex;gap:10px">
       <button class="save-btn" style="background:var(--surface2);box-shadow:none;flex:1" onclick="closeModal()">İptal</button>
-      <button class="save-btn danger" style="flex:1" onclick="DB.deleteCustomer('${id}');closeModal();showToast('Müşteri silindi','error');render()">Sil</button>
+      <button class="save-btn danger" style="flex:1" onclick="DB.deleteCustomer('${id}');invalidateCache('customers');closeModal();showToast('Müşteri silindi','error');render()">Sil</button>
     </div>
   `);
 }
@@ -1049,7 +1049,7 @@ async function confirmDeleteExpense(id) {
     <p style="color:var(--text-sec);margin-bottom:24px">Bu gider kaydını silmek istiyor musunuz?</p>
     <div style="display:flex;gap:10px">
       <button class="save-btn" style="background:var(--surface2);box-shadow:none;flex:1" onclick="closeModal()">İptal</button>
-      <button class="save-btn danger" style="flex:1" onclick="DB.deleteExpense('${id}');closeModal();showToast('Silindi','error');render()">Sil</button>
+      <button class="save-btn danger" style="flex:1" onclick="DB.deleteExpense('${id}');invalidateCache('expenses');closeModal();showToast('Silindi','error');render()">Sil</button>
     </div>
   `);
 }
